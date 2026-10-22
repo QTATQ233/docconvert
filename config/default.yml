@@ -1,0 +1,65 @@
+# docconvert 内置版式与规则常量（唯一定义源，随包只读，无用户覆盖入口）
+# 白名单与取值冻结于 architecture §4.4 / requirements §11.1；模板由构建期工具按本文件生成，
+# 运行期先做双源一致性校验（模板 styles.xml 的 w:sz == 本文件的 pt 值 × 2）。
+
+page:
+  size: A4
+  margins:
+    top: 2.2
+    bottom: 2.2
+    left: 2.0
+    right: 2.0
+
+fonts:
+  latin: Calibri
+  cjk: 微软雅黑
+  mono: Consolas
+  cjkFallback: [Microsoft YaHei UI, PingFang SC, Hiragino Sans GB, Noto Sans CJK SC, Source Han Sans SC, SimSun]
+  latinFallback: [Carlito, Arial, Helvetica]
+  monoFallback: [Menlo, DejaVu Sans Mono, monospace]
+
+sizes:
+  body: 12
+  h1: 18
+  h2: 15
+  h3: 13
+  h4: 12
+  h5: 11
+  h6: 11
+  table: 8.5
+  code: 9
+  footer: 9
+  toc: 10.5
+  coverTitle: 26
+
+colors:
+  tableHeaderFill: "EDEDED"
+  codeFill: "F5F5F5"
+  link: "0563C1"
+  footerText: "808080"
+
+table:
+  widthCm: 17.0
+  cellPaddingTwips: [30, 60, 30, 60]
+  afterSpacePt: 10
+
+layout:
+  bodyLineSpacing: 1.5
+  bodyFirstLineIndentChars: 2
+  longdocHeadingThreshold: 3
+  h1PageBreak: true
+
+toc:
+  depth: 3
+  bookmarkDepth: 6
+
+output:
+  dirName: docconvert-out
+  docxExt: .docx
+  pdfExt: .pdf
+
+log:
+  fileName: conversion-log.jsonl
+
+images:
+  maxWidthCm: 17.0

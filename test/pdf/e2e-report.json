@@ -1,0 +1,43 @@
+{
+  "role": "dev-pdf",
+  "stage": "2.1",
+  "cases": [
+    {
+      "case": "headings-25",
+      "source": "examples\\headings.md",
+      "pages": 8,
+      "entries": 25,
+      "outlineEntries": 25,
+      "tocNumberLines": 25,
+      "matched": 25,
+      "expected": 25,
+      "converged": true,
+      "passes": 2,
+      "mode": "two-pass",
+      "mismatches": 0,
+      "updateFields": 0,
+      "bookmarks": 26,
+      "elapsedMs": 4417,
+      "ok": true
+    },
+    {
+      "case": "long-50-134",
+      "source": "examples\\long-50.md",
+      "pages": 73,
+      "entries": 134,
+      "outlineEntries": 134,
+      "tocNumberLines": 134,
+      "matched": 134,
+      "expected": 134,
+      "converged": true,
+      "passes": 2,
+      "mode": "two-pass",
+      "mismatches": 0,
+      "updateFields": 0,
+      "bookmarks": 134,
+      "elapsedMs": 7096,
+      "ok": true
+    }
+  ],
+  "ok": true
+}

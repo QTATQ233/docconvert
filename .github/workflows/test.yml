@@ -1,0 +1,50 @@
+name: test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  unit:
+    name: unit tests (Node 22.x)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [22.x]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Unit tests (182)
+        run: npm run test:unit
+      - name: Smoke conversion (DOCX only, no PDF engine required)
+        run: node bin/docconvert.js examples/cjk.md -o "$RUNNER_TEMP/smoke" --format docx
+
+  # PDF 验收需要 @deepseek-ai/libreoffice-kit 的平台引擎（tarball ≈ 68 MB）；
+  # 公共 runner 上引擎可用性尚未验证，因此该 job 不阻断合并（continue-on-error）。
+  acceptance:
+    name: CLI acceptance (needs PDF engine)
+    runs-on: windows-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Doctor (locate PDF engine)
+        run: node bin/docconvert.js doctor
+      - name: CLI end-to-end tests
+        run: node --test --test-isolation=none test/cli/*.test.mjs
+      - name: Shell acceptance (npm test)
+        run: npm test

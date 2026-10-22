@@ -1,0 +1,43 @@
+# ===== 构建与测试产物 =====
+out/
+test/**/out/
+test/**/.tmp/
+*.tmp
+*.log
+conversion-log.jsonl
+.npm-cache/
+*.tgz
+
+# ===== 内部工作材料（不随发布）=====
+_archive/
+_spike/
+drafts/
+
+# ===== 依赖 =====
+node_modules/
+
+# ===== 生成的文档（内置模板与测试样本除外）=====
+*.docx
+*.pdf
+!templates/reference.docx
+!examples/conflict/reference.docx
+!examples/conflict/templates/reference.docx
+
+# ===== 操作系统噪音 =====
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+desktop.ini
+
+# ===== 编辑器 =====
+.vscode/
+.idea/
+*.swp
+*~
+
+# ===== 本地环境 =====
+.env
+.env.*

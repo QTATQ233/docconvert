@@ -1,0 +1,17 @@
+干扰模板说明
+================
+
+来源：工作区根目录的《钓鱼鱼类调查报告.docx》（既有产物，仅作版式参考，不是本项目模板）。
+用途：只在 conflict/ 场景中充当"同名干扰文件"，验证程序不会被工作目录里的 reference.docx 劫持。
+禁止：不得把它当作 docconvert 的内置模板；不得把本目录里的任何 .docx 复制进 docconvert/templates/。
+
+两份副本：
+  conflict/reference.docx
+  conflict/templates/reference.docx
+
+执行者第一次运行 C1 之前，先用下面的命令确认副本没有被替换：
+
+  Get-FileHash docconvert/examples/conflict/reference.docx -Algorithm SHA256
+  Get-FileHash docconvert/examples/conflict/templates/reference.docx -Algorithm SHA256
+
+两份副本应完全一致（同一源文件的两个拷贝）。

@@ -1,0 +1,51 @@
+{
+  "name": "docconvert",
+  "version": "0.1.0",
+  "description": "一条命令把 .md / .txt 转成排版好的 .docx 与 .pdf（模板内置、零配置、内容与排版分离、输出可复现）",
+  "type": "module",
+  "bin": {
+    "docconvert": "bin/docconvert.js"
+  },
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "files": [
+    "bin",
+    "src",
+    "templates",
+    "config",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "@deepseek-ai/libreoffice-kit": "0.1.5"
+  },
+  "optionalDependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "fixtures": "node test/shell/make-fixtures.mjs",
+    "test": "node test/shell/run-acceptance.mjs",
+    "test:unit": "node --test --test-isolation=none \"test/**/*.test.mjs\""
+  },
+  "keywords": [
+    "markdown",
+    "docx",
+    "pdf",
+    "converter",
+    "cli",
+    "libreoffice",
+    "typesetting",
+    "electron-free",
+    "zero-config"
+  ],
+  "author": "QTATQ233",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QTATQ233/docconvert.git"
+  },
+  "homepage": "https://github.com/QTATQ233/docconvert#readme",
+  "bugs": {
+    "url": "https://github.com/QTATQ233/docconvert/issues"
+  }
+}

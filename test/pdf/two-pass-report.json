@@ -1,0 +1,153 @@
+{
+  "role": "dev-pdf",
+  "stage": "2.1",
+  "checks": [
+    {
+      "name": "fixture-34:outline-count",
+      "ok": true,
+      "detail": {
+        "outline": 34,
+        "entries": 34
+      }
+    },
+    {
+      "name": "fixture-34:page-count-stable",
+      "ok": true,
+      "detail": {
+        "pass1": 8,
+        "pass2": 8
+      }
+    },
+    {
+      "name": "fixture-34:converged",
+      "ok": true,
+      "detail": {
+        "mismatches": []
+      }
+    },
+    {
+      "name": "fixture-34:page-match",
+      "ok": true,
+      "detail": {
+        "matched": 34,
+        "total": 34
+      }
+    },
+    {
+      "name": "S-01-long-3digit:outline-count",
+      "ok": true,
+      "detail": {
+        "outline": 660,
+        "entries": 660
+      }
+    },
+    {
+      "name": "S-01-long-3digit:page-count-stable",
+      "ok": true,
+      "detail": {
+        "pass1": 140,
+        "pass2": 140
+      }
+    },
+    {
+      "name": "S-01-long-3digit:converged",
+      "ok": true,
+      "detail": {
+        "mismatches": []
+      }
+    },
+    {
+      "name": "S-01-long-3digit:page-match",
+      "ok": true,
+      "detail": {
+        "matched": 660,
+        "total": 660
+      }
+    },
+    {
+      "name": "S-01:pages>99",
+      "ok": true,
+      "detail": {
+        "pages": 140
+      }
+    },
+    {
+      "name": "S-01:has-3digit-pages",
+      "ok": true,
+      "detail": {
+        "pages": 140
+      }
+    },
+    {
+      "name": "S-02-float-table:outline-count",
+      "ok": true,
+      "detail": {
+        "outline": 24,
+        "entries": 24
+      }
+    },
+    {
+      "name": "S-02-float-table:page-count-stable",
+      "ok": true,
+      "detail": {
+        "pass1": 27,
+        "pass2": 27
+      }
+    },
+    {
+      "name": "S-02-float-table:converged",
+      "ok": true,
+      "detail": {
+        "mismatches": []
+      }
+    },
+    {
+      "name": "S-02-float-table:page-match",
+      "ok": true,
+      "detail": {
+        "matched": 24,
+        "total": 24
+      }
+    }
+  ],
+  "fixtures": [
+    {
+      "fixture": "fixture-34",
+      "pages": 8,
+      "entries": 34,
+      "matched": 34,
+      "converged": true,
+      "retries": 0,
+      "pass1Ms": 1769,
+      "pass2Ms": 1959,
+      "totalMs": 3731,
+      "sha256Pdf2": "d5866483717df9a1",
+      "note": "34 标题 fixture（spike 版式）：页码 34/34"
+    },
+    {
+      "fixture": "S-01-long-3digit",
+      "pages": 140,
+      "entries": 660,
+      "matched": 660,
+      "converged": true,
+      "retries": 0,
+      "pass1Ms": 2345,
+      "pass2Ms": 2836,
+      "totalMs": 5207,
+      "sha256Pdf2": "ad71f4e03f5cd5e7"
+    },
+    {
+      "fixture": "S-02-float-table",
+      "pages": 27,
+      "entries": 24,
+      "matched": 24,
+      "converged": true,
+      "retries": 0,
+      "pass1Ms": 2616,
+      "pass2Ms": 2586,
+      "totalMs": 5227,
+      "sha256Pdf2": "4a85cb6beac0f110"
+    }
+  ],
+  "ok": true
+}
