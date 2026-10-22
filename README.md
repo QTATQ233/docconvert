@@ -1,3 +1,5 @@
+![docconvert 社交预览](docs/assets/social-preview.png)
+
 # docconvert
 
 **一条命令，把 .md / .txt 变成排版好的 .docx 与 .pdf。**
@@ -104,6 +106,10 @@ PDF 引擎不可用时 `--format docx` 仍然完全可用（见 **§7.6**）。
 ---
 
 ## 2. 10 秒上手（实测）
+
+![docconvert 终端演示](docs/assets/demo.gif)
+
+> 终端演示：一条命令同时产出 DOCX 与 PDF。
 
 ### 2.1 跑一次
 
@@ -577,6 +583,11 @@ docconvert/
 ├─ config/
 │  └─ default.yml            # 版式常量（只读，无用户覆盖入口）
 ├─ examples/                 # 输入样本（.md / .txt / 图片）
+├─ docs/
+│  ├─ ARCHITECTURE.md         # 架构图与模块边界
+│  └─ assets/
+│     ├─ social-preview.png   # README 社交预览（1280×640）
+│     └─ demo.gif             # 终端演示动画
 ├─ tools/                    # 构建期：从 default.yml 生成模板
 ├─ .github/workflows/        # CI：Node 22.x 上跑单测与 smoke 转换
 ├─ package.json
@@ -605,6 +616,18 @@ node tools/build-template.js   # 重新生成内置模板（哈希应保持 eb4f
 - 验收需要 PDF 引擎；没有引擎时先用 `--format docx` 的 smoke 用例兜底（CI 的 unit job 就是这么跑的）。
 - **不要手改 `templates/reference.docx`**：它由 `tools/build-template.js` 从 `config/default.yml` 生成；`test/shell/make-fixtures.mjs` 已不再写它（早期占位逻辑会把真实模板覆盖成 16 样式版本）。
 - CI 在 `.github/workflows/test.yml`：Node 22.x，push / PR 触发单测 + DOCX smoke 转换。
+
+---
+
+## 10. 架构
+
+一条单向流水线，PDF 永远由 DOCX 导出，两种格式共享同一套版式：
+
+`Input (.md/.txt) → input-preprocess → markdown/txt parser → AST → docx-render → out.docx → pdf-render (LibreOffice Kit) → out.pdf`
+
+目录页码由两遍法闭环：第一遍 PDF 提供真实页码 → 回填 DOCX 目录缓存 → 第二遍导出最终 PDF。
+
+完整的 Mermaid 图、模块边界与关键不变量见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。
 
 ---
 

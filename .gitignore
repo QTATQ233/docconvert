@@ -41,3 +41,6 @@ desktop.ini
 # ===== 本地环境 =====
 .env
 .env.*
+# ===== 文档资产（需要提交）=====
+!docs/assets/
+!docs/assets/**
